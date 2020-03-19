@@ -2,10 +2,11 @@ import React from "react"
 import useStats from "../utils/useStats"
 import Loader from "./Loader"
 import useCountries from "../utils/useCountries"
+import "./StatsDisplay.css"
 
-export default ({ id }) => {
+export default ({ code, name }) => {
   const { stats, loading, error } = useStats(
-    `https://covid19.mathdro.id/api/countries/${id}`
+    `https://covid19.mathdro.id/api/countries/${code}`
   )
 
   const { countries, countriesLoading, countriesError } = useCountries()
@@ -20,7 +21,7 @@ export default ({ id }) => {
 
   return (
     <div>
-      <h1>{id}</h1>
+      <h1>{name}</h1>
       <div className="grid">
         <div>
           <h2>Confirmed cases</h2>

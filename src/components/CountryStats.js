@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import useStats from "../utils/useStats"
 import Loader from "./Loader"
-import RegionalStatsDisplay from "./RegionalStatsDisplay"
+import StatsDisplay from "./StatsDisplay"
 import useCountries from "../utils/useCountries"
 
 import "./CountryStats.css"
@@ -18,7 +18,19 @@ export default () => {
     console.log(`New queried country: ${query}`)
 
     try {
-      setStatsDisplay(<RegionalStatsDisplay id={countries[0]["code"]} />)
+      setStatsDisplay(<StatsDisplay name={countries[0]["name"]} code={countries[0]["code"]} />)
+    } catch (err) {
+      console.log(err)
+      setStatsDisplay(<div>No data found for this query.</div>)
+    }
+  }
+
+  const handleResultItemClick = (e, code, name) => {
+    console.log(`CLICKED!`)
+    console.log(code)
+
+    try {
+      setStatsDisplay(<StatsDisplay code={code} name={name} />)
     } catch (err) {
       console.log(err)
       setStatsDisplay(<div>No data found for this query.</div>)
@@ -44,7 +56,10 @@ export default () => {
           {countries
             ? countries.map(country => {
                 return (
-                  <li value={country["code"]} className="searchResult">
+                  <li
+                    onClick={e => handleResultItemClick(e, country["code"], country["name"])}
+                    className="searchResult"
+                  >
                     {country["name"]}
                   </li>
                 )
