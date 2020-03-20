@@ -19,15 +19,15 @@ export default ({ code, name }) => {
   return (
     <div style={{ marginTop: "5vh" }}>
       <div className="grid">
-        <div>
+        <div className="globalStat">
           <h2>Confirmed cases</h2>
           <h1 className="counter">{stats.confirmed.value}</h1>
         </div>
-        <div>
+        <div className="globalStat">
           <h2>Deaths</h2>
           <h1 className="counter">{stats.deaths.value}</h1>
         </div>
-        <div>
+        <div className="globalStat">
           <h2>Cured</h2>
           <h1 className="counter">{stats.recovered.value}</h1>
         </div>
