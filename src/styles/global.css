@@ -3,4 +3,10 @@
 html {
   font-family: "Poppins", sans-serif;
   text-align: center;
+  background-color: #f9d9f5;
+}
+
+a:active, a:visited {
+  color: #91317e;
+  font-weight: bold;
 }

@@ -44,7 +44,7 @@ export default function useCountries(query) {
         // console.log(`useCountries :: Matching countries`)
         //console.log(resCountries.slice(0, 5))
 
-        setCountries(resCountries.slice(0, 5))
+        setCountries(resCountries.slice(0, 5).reverse())
       } catch (err) {
         setcountriesError(err)
       }

@@ -31,6 +31,7 @@ export default () => {
 
     setShowSuggestions(false)
     setQuery(countries[0]["name"])
+    
   }
 
   const handleResultItemClick = (e, code, name) => {

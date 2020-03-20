@@ -1,7 +1,7 @@
 import React from "react"
 import "./index.css"
 import useStats from "../utils/useStats"
-import { Loader, CountryStats } from "../components"
+import { Loader, CountryStats, Footer } from "../components"
 
 export default () => {
   const { stats, loading, error } = useStats("https://covid19.mathdro.id/api")
@@ -17,7 +17,7 @@ export default () => {
 
   return (
     <React.Fragment>
-      <h1>LIVE Global Statistics</h1>
+      <h1>COVID-19 LIVE Global Statistics</h1>
 
       {/* <hr /> */}
 
@@ -37,6 +37,8 @@ export default () => {
       </div>
 
       <CountryStats />
+
+      <Footer />
     </React.Fragment>
   )
 }
