@@ -1,15 +1,15 @@
 import React, { useState } from "react"
-import useStats from "../utils/useStats"
-import Loader from "./Loader"
 import StatsDisplay from "./StatsDisplay"
 import useCountries from "../utils/useCountries"
 
 import "./CountryStats.css"
 
 export default () => {
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("China")
 
-  const [statsDisplay, setStatsDisplay] = useState(null)
+  const [statsDisplay, setStatsDisplay] = useState(<StatsDisplay name={"China"} code={"CN"} />)
+
+  const [showSuggestions, setShowSuggestions] = useState(false)
 
   const { countries, countriesLoading, countriesError } = useCountries(query)
 
@@ -18,11 +18,16 @@ export default () => {
     console.log(`New queried country: ${query}`)
 
     try {
-      setStatsDisplay(<StatsDisplay name={countries[0]["name"]} code={countries[0]["code"]} />)
+      setStatsDisplay(
+        <StatsDisplay name={countries[0]["name"]} code={countries[0]["code"]} />
+      )
     } catch (err) {
       console.log(err)
       setStatsDisplay(<div>No data found for this query.</div>)
     }
+
+    setShowSuggestions(false)
+    setQuery(countries[0]["name"])
   }
 
   const handleResultItemClick = (e, code, name) => {
@@ -35,6 +40,9 @@ export default () => {
       console.log(err)
       setStatsDisplay(<div>No data found for this query.</div>)
     }
+
+    setShowSuggestions(false)
+    setQuery(name)
   }
 
   return (
@@ -50,14 +58,20 @@ export default () => {
           autoFocus
           type="text"
           placeholder="ID"
-          onChange={e => setQuery(e.target.value)}
+          onChange={e => {
+            setQuery(e.target.value)
+            setShowSuggestions(true)
+          }}
         ></input>
         <ul className="searchResults">
-          {countries
+          {countries && showSuggestions && query !== ""
             ? countries.map(country => {
                 return (
                   <li
-                    onClick={e => handleResultItemClick(e, country["code"], country["name"])}
+                    key={country["code"]}
+                    onClick={e =>
+                      handleResultItemClick(e, country["code"], country["name"])
+                    }
                     className="searchResult"
                   >
                     {country["name"]}

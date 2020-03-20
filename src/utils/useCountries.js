@@ -23,7 +23,7 @@ export default function useCountries(query) {
         const resCountries = []
 
         for (let country of json) {
-          if(country.size >= 5) {
+          if(resCountries.length >= 5) {
             break
           }
 

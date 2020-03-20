@@ -7,20 +7,27 @@
 
 .searchResults {
   list-style: none;
+  border: 0.5px solid grey;
+  margin: auto;
+  width: fit-content;
+  align-items: center;
+  padding: 0;
+  transition: 0.7s ease-in;
 }
 
 .searchResult {
-  margin: auto;
-  max-width: fit-content;
-  border-radius: 8px;
+  margin: 0 auto;
+  min-width: fit-content;
+  width: 15%;
+  max-width: 30%;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 0.5px solid grey;
-  -webkit-box-shadow: 16px -3px 13px -13px rgba(0, 0, 0, 0.75);
+  border: none;
+  /* -webkit-box-shadow: 16px -3px 13px -13px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 16px -3px 13px -13px rgba(0, 0, 0, 0.75);
-  box-shadow: 16px -3px 13px -13px rgba(0, 0, 0, 0.75);
+  box-shadow: 16px -3px 13px -13px rgba(0, 0, 0, 0.75); */
 }
 
 .searchResult:hover {
   cursor: pointer;
+  background-color: grey;
 }
