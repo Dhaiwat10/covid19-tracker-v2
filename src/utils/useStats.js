@@ -23,7 +23,6 @@ export default function useStats(url, headers) {
       setLoading(false)
     }
     fetchData()
-    console.log(stats)
   }, [url])
 
   return {
