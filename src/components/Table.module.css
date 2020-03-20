@@ -1,0 +1,21 @@
+@media (max-width: 700px) {
+  .table {
+    width: 95vw !important;
+  }
+}
+
+.table {
+  margin: 5vh auto;
+  background-color: #f4b5ef;
+  width: 80vw;
+  border-radius: 26px;
+}
+
+td {
+  padding: 15px;
+}
+
+tr:hover {
+  color: #75114f;
+  background-color: #fca1e9;
+}
