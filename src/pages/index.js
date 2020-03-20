@@ -4,9 +4,7 @@ import useStats from "../utils/useStats"
 import { Loader, CountryStats } from "../components"
 
 export default () => {
-  const { stats, loading, error } = useStats(
-    "https://covid19.mathdro.id/api"
-  )
+  const { stats, loading, error } = useStats("https://covid19.mathdro.id/api")
 
   if (loading) return <Loader />
   if (error)
@@ -18,8 +16,10 @@ export default () => {
     )
 
   return (
-    <div className="paper">
+    <React.Fragment>
       <h1>LIVE Global Statistics</h1>
+
+      {/* <hr /> */}
 
       <div className="globalStatsGrid">
         <div className="globalStat">
@@ -37,6 +37,6 @@ export default () => {
       </div>
 
       <CountryStats />
-    </div>
+    </React.Fragment>
   )
 }

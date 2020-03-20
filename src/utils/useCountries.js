@@ -22,18 +22,29 @@ export default function useCountries(query) {
         //console.log(json)
         const resCountries = []
 
-        for (let country of json) {
-          if(resCountries.length >= 5) {
-            break
+        const filtered = json.filter(country => country["name"][0].toLowerCase() === query[0].toLowerCase())
+
+        console.log(filtered)
+
+        for (let country of filtered) {
+          let obj = {
+            code: country["alpha2Code"],
+            name: country["name"],
           }
 
-          resCountries.push({code: country["alpha2Code"], name: country["name"]})
+          if (obj.code !== "IO") {
+            if (obj.name[0].toLowerCase() === query[0].toLowerCase()) {
+              resCountries.unshift(obj)
+            } else {
+              resCountries.push(obj)
+            }
+          }
         }
 
         // console.log(`useCountries :: Matching countries`)
-        // console.log(resCountries)
+        //console.log(resCountries.slice(0, 5))
 
-        setCountries(resCountries)
+        setCountries(resCountries.slice(0, 5))
       } catch (err) {
         setcountriesError(err)
       }

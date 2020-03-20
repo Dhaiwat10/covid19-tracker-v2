@@ -1,6 +1,6 @@
-@media (max-width: 600px) {
-  .paper {
-    width: 90%;
+@media (max-width: 700px) {
+  .globalStatsGrid {
+    max-width: 75% !important;
   }
 }
 
@@ -14,5 +14,19 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin: auto;
-  border-radius: 8px;
+  border-radius: 26px;
+  background-color: #f4b5ef;
+  max-width: 60%;
+  padding: 2vw;
+  -webkit-box-shadow: 10px 10px 19px -6px rgba(242, 138, 214, 1);
+  -moz-box-shadow: 10px 10px 19px -6px rgba(242, 138, 214, 1);
+  box-shadow: 10px 10px 19px -6px rgba(242, 138, 214, 1);
+}
+
+hr {
+  border: 3px solid #e86ed0;
+}
+
+.counter {
+  color: #91317e;
 }

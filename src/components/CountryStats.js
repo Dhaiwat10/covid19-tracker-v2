@@ -5,9 +5,12 @@ import useCountries from "../utils/useCountries"
 import "./CountryStats.css"
 
 export default () => {
-  const [query, setQuery] = useState("China")
+  const [query, setQuery] = useState("")
 
-  const [statsDisplay, setStatsDisplay] = useState(<StatsDisplay name={"China"} code={"CN"} />)
+  const [statsDisplay, setStatsDisplay] = useState(
+    // <StatsDisplay name={"China"} code={"CN"} />
+    null
+  )
 
   const [showSuggestions, setShowSuggestions] = useState(false)
 
@@ -46,23 +49,22 @@ export default () => {
   }
 
   return (
-    <React.Fragment>
-      <h1 style={{ maringTop: "5vh" }}>Stats by country / region</h1>
-
+    <div className="countryStatsGrid">
       <form onSubmit={handleFormSubmit}>
-        <label style={{ marginRight: "20px" }}>
-          Select a country or region
-        </label>
+        <img className="searchIcon" src="search_icon.png" />
         <input
+          className="searchBar"
           value={query}
-          autoFocus
           type="text"
-          placeholder="ID"
+          placeholder="Search data by country"
           onChange={e => {
             setQuery(e.target.value)
             setShowSuggestions(true)
           }}
         ></input>
+        {/* <button className="submitBtn" type="submit">
+          Submit
+        </button> */}
         <ul className="searchResults">
           {countries && showSuggestions && query !== ""
             ? countries.map(country => {
@@ -80,10 +82,9 @@ export default () => {
               })
             : null}
         </ul>
-        <button type="submit">Submit</button>
       </form>
 
       {statsDisplay}
-    </React.Fragment>
+    </div>
   )
 }

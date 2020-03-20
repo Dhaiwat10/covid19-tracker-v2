@@ -1,3 +1,81 @@
+@media (max-width: 700px) {
+  .countryStatsGrid {
+    max-width: 75% !important;
+  }
+
+  .searchBar {
+    font-size: 20px !important;
+    width: 50vw !important;
+  }
+
+  .searchBar:focus {
+    font-size: 30px !important;
+  }
+  .searchResult {
+    width: 50vw !important;
+  }
+}
+
+.countryStatsGrid {
+  border-radius: 26px;
+  background-color: #f4b5ef;
+  margin: 5vh auto;
+  max-width: 60%;
+  padding: 2vw;
+  -webkit-box-shadow: 10px 10px 19px -6px rgba(242, 138, 214, 1);
+  -moz-box-shadow: 10px 10px 19px -6px rgba(242, 138, 214, 1);
+  box-shadow: 10px 10px 19px -6px rgba(242, 138, 214, 1);
+}
+
+.searchBar {
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  border-bottom: 2px solid black;
+  font-size: 30px;
+  background-color: #f4b5ef;
+  transition: 0.3s ease;
+  width: 30vw;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.searchBar:focus {
+  font-size: 50px;
+  text-align: center;
+  outline: none;
+}
+
+.searchBar::placeholder {
+  color: black;
+  text-align: center;
+  font-weight: 600;
+}
+
+.searchBar:focus::placeholder {
+  visibility: hidden;
+}
+
+.submitBtn {
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  border: 1px solid black;
+  font-size: 18px;
+  margin-top: 10px;
+  color: white;
+  background-color: deeppink;
+  transition: 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: darkmagenta;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -6,28 +84,34 @@
 }
 
 .searchResults {
+  position: relative;
+  left: 9px;
+  border-bottom-left-radius: 26px;
+  border-bottom-right-radius: 26px;
   list-style: none;
-  border: 0.5px solid grey;
   margin: auto;
   width: fit-content;
   align-items: center;
   padding: 0;
-  transition: 0.7s ease-in;
+  transition: 0.7s ease;
+  background-color: white;
 }
 
 .searchResult {
   margin: 0 auto;
   min-width: fit-content;
-  width: 15%;
-  max-width: 30%;
+  width: 30vw;
   padding: 10px;
   border: none;
-  /* -webkit-box-shadow: 16px -3px 13px -13px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 16px -3px 13px -13px rgba(0, 0, 0, 0.75);
-  box-shadow: 16px -3px 13px -13px rgba(0, 0, 0, 0.75); */
+  transition: 0.7s ease;
 }
 
 .searchResult:hover {
   cursor: pointer;
   background-color: grey;
+}
+
+.searchIcon {
+  height: 18px;
+  width: auto;
 }
