@@ -8,6 +8,10 @@
     width: 50vw !important;
   }
 
+  .searchBar::placeholder {
+    font-size: 12px !important;
+  }
+
   .searchBar:focus {
     font-size: 30px !important;
   }

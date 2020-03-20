@@ -6,7 +6,7 @@ html {
   background-color: #f9d9f5;
 }
 
-a:active, a:visited {
+a, a:active, a:visited {
   color: #91317e;
   font-weight: bold;
 }
