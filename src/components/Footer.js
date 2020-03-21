@@ -14,6 +14,7 @@ export default () => {
       </a>{" "}
       <br />
       <a
+        style={{ fontSize: "12px" }}
         target="_blank"
         href="https://rapidapi.com/astsiatsko/api/coronavirus-monitor"
         rel="noopener noreferrer"
