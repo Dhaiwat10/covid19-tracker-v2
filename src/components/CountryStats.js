@@ -19,19 +19,22 @@ export default () => {
   const handleFormSubmit = e => {
     e.preventDefault()
     console.log(`New queried country: ${query}`)
+    setTimeout(() => {
+      try {
+        setStatsDisplay(
+          <StatsDisplay
+            name={countries[0]["name"]}
+            code={countries[0]["code"]}
+          />
+        )
+      } catch (err) {
+        console.log(err)
+        setStatsDisplay(<div>No data found for this query.</div>)
+      }
 
-    try {
-      setStatsDisplay(
-        <StatsDisplay name={countries[0]["name"]} code={countries[0]["code"]} />
-      )
-    } catch (err) {
-      console.log(err)
-      setStatsDisplay(<div>No data found for this query.</div>)
-    }
-
-    setShowSuggestions(false)
-    setQuery(countries[0]["name"])
-    
+      setShowSuggestions(false)
+      setQuery(countries[0]["name"])
+    }, 500)
   }
 
   const handleResultItemClick = (e, code, name) => {
