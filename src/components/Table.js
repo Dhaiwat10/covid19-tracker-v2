@@ -34,7 +34,7 @@ export default () => {
         </tr>
       </thead>
       <tbody>
-        {stats["countries_stat"].slice(1, 20).map(country => {
+        {stats["countries_stat"].slice(0, 20).map(country => {
           const name = country["country_name"]
           const cases = country["cases"]
           const active = country["active_cases"]
